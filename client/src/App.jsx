@@ -6,8 +6,8 @@ function App() {
   const [refreshToken, setRefreshToken] = useState(0);
 
   return (
-    <main className="min-h-screen bg-gray-100 px-4 py-10">
-      <div className="mx-auto w-full max-w-[720px] space-y-6">
+    <main className="h-screen overflow-hidden bg-gray-100 px-4 py-6">
+      <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-4">
         <header className="space-y-2">
           <p className="inline-flex rounded-full border border-black bg-white px-3 py-1 text-xs font-medium text-black">
             Smart Daily Standup Bot
@@ -17,8 +17,14 @@ function App() {
             Turn rough updates into a structured summary with tags.
           </p>
         </header>
-        <StandupForm onCreated={() => setRefreshToken((value) => value + 1)} />
-        <HistoryFeed refreshToken={refreshToken} />
+        <section className="grid min-h-0 flex-1 gap-4 md:grid-cols-2">
+          <div className="min-h-0 overflow-y-auto rounded-2xl border border-black bg-white p-4 shadow-sm">
+            <StandupForm onCreated={() => setRefreshToken((value) => value + 1)} />
+          </div>
+          <div className="min-h-0 rounded-2xl border border-black bg-white p-4 shadow-sm">
+            <HistoryFeed refreshToken={refreshToken} />
+          </div>
+        </section>
       </div>
     </main>
   );

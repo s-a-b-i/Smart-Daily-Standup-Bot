@@ -56,7 +56,7 @@ function StandupForm({ onCreated }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 rounded-2xl border border-black bg-white p-6 shadow-sm"
+      className="space-y-4"
     >
       <div className="space-y-1">
         <h2 className="text-lg font-semibold text-black">New update</h2>
